@@ -34,7 +34,7 @@
 			<div id="box-login">
 				<form >
 					Username: <input type="text" name="text" size="20" /> </br>
-					Password: <input type="text" name="text" size="20" /> </br>
+					Password: <input type="password" name="text" size="20" /> </br>
 					<a href="register.htm" style="text-decoration:none;"><button type="button">Sign up</button></a><button type="button">Login</button>
 				</form>
 				</br>
@@ -158,8 +158,8 @@ value="male" /> Belgium
 
 <tr>
 <td align="right" class="required"><p>Zip code:</p> </td> 
-<td><input name="name" class="required" placeholder="Enter four digits" length="4"/ >
-<td><input name="name" class="required" placeholder="Enter two letters"  length="2" type="text"/></td>
+<td><input name="name" class="required" placeholder="1234" maxlength="4" size="12"/ ><input name="name" class="required" placeholder="AA"  maxlength="2" size="3"/></td>
+<td></td>
 
 <br>
 </td>
@@ -172,7 +172,11 @@ value="male" /> Belgium
 </tr>
 <tr>
 <td align="right" class="required"><p>Password:</p></td>
-<td><input name="name" class="required" /></td>
+<td><input type="password" name="name" class="required" /></td>
+</tr>
+<tr>
+<td align="right" class="required"><p>Confirm password:</p></td>
+<td><input type="password" name="name" class="required" /></td>
 </tr>
 
 <tr>
