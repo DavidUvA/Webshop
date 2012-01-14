@@ -50,7 +50,7 @@ if (isset($_POST["name"]) && isset($_POST["email"])){
     </form>
 	</div>
 <?php }else{
-    echo "Thank you, ".$name.;
+    echo "Thank you, ".$name;
     echo "<br/>We will reply to you at:" . "<em>" . $email . "</em>";
  } ?>
 
