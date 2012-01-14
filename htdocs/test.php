@@ -11,7 +11,7 @@ $error = "";
 
 $done=false;
 
-if (isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["age"])){
+if (isset($_POST["name"]) && isset($_POST["email"])){
     if($_POST["name"]==""){
     $error = "empty name <br/>";
     }
@@ -19,9 +19,6 @@ if (isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["age"])){
     if($_POST["email"]==""){
     $error = $error . "empty mail <br/>";
     }
-
-
-
 
     $name = $_POST["name"];
     $email = $_POST["email"];
