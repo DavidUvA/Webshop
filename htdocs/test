@@ -3,7 +3,6 @@
 // to eventually re-fill the fields
 $name = "";
 $email = "";
-$gender = "";
 $age = "";
 $comments = "";
 
@@ -25,21 +24,10 @@ if (isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["age"])){
     }
 
     if($_POST["email"]==""){
-    $error = $error . "empty mail <br/>";
+    $error = $error . "empty mail <
+br/>";
     }
 
-    if(!isset($_POST["gen"])){
-    $error = $error . "empty gender <br/>";
-    }
-    else{
-        $gender = $_POST["gen"];
-        if ($gender == "Male"){
-            $Mchecked = "checked";
-        }
-        else if ($gender == "Female"){
-            $Fchecked = "checked";
-        }
-    }
 
     if($_POST["comments"]==""){
     $error = $error . "error: empty comments <br/>";
@@ -82,10 +70,7 @@ if (isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["age"])){
     <strong>Name:</strong> <input type="text" name="name" id="name" value="<?php echo $name; ?>" /><br/>
     <strong>Email:</strong> <input type="text" name="email" id="email" value="<?php echo $email; ?>" /><br/>
     <br/>
-    <strong>Gender</strong><br/>
-    <input type="radio" name="gen" value="Male" <?php echo $Mchecked;?>>Male</input><br/>
-    <input type="radio" name="gen" value="Female" <?php echo $Fchecked;?>>Female</input><br/>
-    <br/>
+ 
     <select name="age" value="<?php echo $age;?>">
     <option value="Under 30" <?php echo $selectMinus_30;?>>Under 30</option><br/>
     <option value="Between 30 and 60" <?php echo $select30_to_60;?>>Between 30 and 60</option><br/>
