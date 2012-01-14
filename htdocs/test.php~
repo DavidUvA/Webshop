@@ -14,11 +14,11 @@ $done=false;
 
 if (isset($_POST["name"]) && isset($_POST["email"])){
     if($_POST["name"]==""){
-    $errorname = "empty name <br/>";
+    $errorname = "empty name";
     }
 
     if($_POST["email"]==""){
-    $erroremail = "empty mail <br/>";
+    $erroremail = "empty mail";
     }
 
     $name = $_POST["name"];
