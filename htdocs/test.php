@@ -32,7 +32,7 @@ if (isset($_POST["name"]) && isset($_POST["email"])){
 
 <html>
 <head>
-<title>Lab6 : P1</title>
+<title>Testing</title>
 </head>
 
 <body>
@@ -40,7 +40,7 @@ if (isset($_POST["name"]) && isset($_POST["email"])){
 <?php if (!$done){ ?>
     <div>
     <legend><h4>Enter your information in the fields below</h4></legend>
-    <p class="error" style="color:red;"><?php echo $error;?></p>
+    <p style="color:red;"><?php echo $error;?></p>
     <form name="info" method="post" action="<?php echo $_SERVER["PHP_SELF"];?>" method="post">
     <strong>Name:</strong> <input type="text" name="name" id="name" value="<?php echo $name; ?>" /><br/>
     <strong>Email:</strong> <input type="text" name="email" id="email" value="<?php echo $email; ?>" /><br/>
@@ -50,7 +50,7 @@ if (isset($_POST["name"]) && isset($_POST["email"])){
     </form>
 	</div>
 <?php }else{
-    echo "Thank you, ".$name." for your comments: " . "<strong>" . $comments . "</strong>";
+    echo "Thank you, ".$name." ;
     echo "<br/>We will reply to you at:" . "<em>" . $email . "</em>";
  } ?>
 
