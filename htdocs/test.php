@@ -7,7 +7,8 @@ $email = "";
 
 
 // to display errors
-$error= "";
+$errorname = "";
+$erroremail = "";
 
 $done=false;
 
