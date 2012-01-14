@@ -25,7 +25,7 @@ if (isset($_POST["name"]) && isset($_POST["email"])){
     $email = $_POST["email"];
 
 
-    if ($errorname=="" && $erroremail=""){
+    if ($errorname=="" && $erroremail==""){
         $done=true;
     }
 }
