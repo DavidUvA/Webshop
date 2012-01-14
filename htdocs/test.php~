@@ -61,7 +61,7 @@ if (isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["age"])){
 <body>
 
 <?php if (!$done){ ?>
-    <fieldset>
+    <div>
     <legend><h4>Enter your information in the fields below</h4></legend>
     <p class="error" style="color:red;"><?php echo $error;?></p>
     <form name="info" method="post" action="<?php echo $_SERVER["PHP_SELF"];?>" method="post">
@@ -79,9 +79,10 @@ if (isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["age"])){
     </select>
     <br/>
     Comments: <textarea name="comments" cols="20" rows="5"><?php echo $comments; ?></textarea>
-    </fieldset>
+ 
     <input type="submit" name="submit" value="Submit my Information" />
     </form>
+	</div>
 <?php }else{
     echo "Thank you, ".$name." for your comments: " . "<strong>" . $comments . "</strong>";
     echo "<br/>We will reply to you at:" . "<em>" . $email . "</em>";
