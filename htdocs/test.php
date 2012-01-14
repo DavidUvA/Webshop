@@ -20,9 +20,6 @@ if (isset($_POST["name"]) && isset($_POST["email"])){
     $error = $error . " empty mail <br/>";
     }
 
-	if (!strchr($_POST["email"]), '@')) {
-		echo "Sorry, that isn't a valid email address.";
-	}
 
     $name = $_POST["name"];
     $email = $_POST["email"];
