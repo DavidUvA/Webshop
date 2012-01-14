@@ -11,7 +11,10 @@ mysql_select_db("$db_name")or die("cannot select DB");
 
 // username and password sent from form
 $myusername=$_POST['myusername'];
+echo $myusername;
+
 $mypassword=$_POST['mypassword'];
+echo $mypassword;
 
 // To protect MySQL injection (more detail about MySQL injection)
 $myusername = stripslashes($myusername);
@@ -19,7 +22,7 @@ $mypassword = stripslashes($mypassword);
 $myusername = mysql_real_escape_string($myusername);
 $mypassword = mysql_real_escape_string($mypassword);
 
-$sql="SELECT * FROM $tbl_name WHERE user_email='$myusername' and user_password='$mypassword'";
+$sql="SELECT * FROM $tbl_name WHERE username='$myusername' and password='$mypassword'";
 $result=mysql_query($sql);
 
 // Mysql_num_row is counting table row
