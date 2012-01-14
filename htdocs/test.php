@@ -7,8 +7,7 @@ $email = "";
 
 
 // to display errors
-$errorname = "";
-$erroremail = "";
+$error
 
 $done=false;
 
@@ -25,7 +24,7 @@ if (isset($_POST["name"]) && isset($_POST["email"])){
     $email = $_POST["email"];
 
 
-    if ($errorname=="" && $erroremail==""){
+    if ($erroremail=="" && $errorname==""){
         $done=true;
     }
 }
