@@ -13,18 +13,18 @@ $done=false;
 
 if (isset($_POST["name"]) && isset($_POST["email"])){
     if($_POST["name"]==""){
-    $errorname = "empty name <br/>";
+    $error = "empty name <br/>";
     }
 
     if($_POST["email"]==""){
-    $errormail = $error . "empty mail <br/>";
+    $error = $error . "empty mail <br/>";
     }
 
     $name = $_POST["name"];
     $email = $_POST["email"];
 
 
-    if ($errorname=="" &&$erroremail==""){
+    if ($error==""){
         $done=true;
     }
 }
@@ -40,9 +40,9 @@ if (isset($_POST["name"]) && isset($_POST["email"])){
 <?php if (!$done){ ?>
     <div>
     <legend><h4>Enter your information in the fields below</h4></legend>
-
+    <p class="error" style="color:red;"><?php echo $error;?></p>
     <form name="info" method="post" action="<?php echo $_SERVER["PHP_SELF"];?>" method="post">
-    <strong>Name:</strong> <input type="text" name="name" id="name" value="<?php echo $name; ?>" /><p class="error" style="color:red;"><?php echo $errorname;?></p> <br/>
+    <strong>Name:</strong> <input type="text" name="name" id="name" value="<?php echo $name; ?>" /><br/>
     <strong>Email:</strong> <input type="text" name="email" id="email" value="<?php echo $email; ?>" /><br/>
     <br/>
     <br/>
@@ -50,7 +50,7 @@ if (isset($_POST["name"]) && isset($_POST["email"])){
     </form>
 	</div>
 <?php }else{
-    echo "Thank you, ".$name;
+    echo "Thank you, ".$name.;
     echo "<br/>We will reply to you at:" . "<em>" . $email . "</em>";
  } ?>
 
