@@ -38,17 +38,17 @@ if (isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["age"])){
 <body>
 
 <?php if (!$done){ ?>
-    <div>
+    <fieldset>
     <legend><h4>Enter your information in the fields below</h4></legend>
     <p class="error" style="color:red;"><?php echo $error;?></p>
     <form name="info" method="post" action="<?php echo $_SERVER["PHP_SELF"];?>" method="post">
     <strong>Name:</strong> <input type="text" name="name" id="name" value="<?php echo $name; ?>" /><br/>
     <strong>Email:</strong> <input type="text" name="email" id="email" value="<?php echo $email; ?>" /><br/>
-	</form>
     <br/>
+
+    </fieldset>
     <input type="submit" name="submit" value="Submit my Information" />
-  
-	</div>
+    </form>
 <?php }else{
     echo "Thank you, ".$name." for your comments: " . "<strong>" . $comments . "</strong>";
     echo "<br/>We will reply to you at:" . "<em>" . $email . "</em>";
