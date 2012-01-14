@@ -43,8 +43,8 @@ if (isset($_POST["name"]) && isset($_POST["email"])){
     <legend><h4>Enter your information in the fields below</h4></legend>
   
     <form name="info" method="post" action="<?php echo $_SERVER["PHP_SELF"];?>" method="post">
-    <strong>Name:</strong> <input type="text" name="name" id="name" value="<?php echo $name; ?>" /><?php echo $errorname?><br/>
-    <strong>Email:</strong> <input type="text" name="email" id="email" value="<?php echo $email; ?>" /><?php echo $erroremail?><br/>
+    <strong>Name:</strong> <input type="text" name="name" id="name" value="  <?php echo $name; ?>" /><?php echo $errorname ;?> <br/>
+    <strong>Email:</strong> <input type="text" name="email" id="email" value=" <?php echo $error email; ?>" /><?php echo $erroremail; ?> <br/>
     <br/>
     <br/>
     <input type="submit" name="submit" value="Submit my Information" />
@@ -57,4 +57,3 @@ if (isset($_POST["name"]) && isset($_POST["email"])){
 
 </body>
 </html>
-
