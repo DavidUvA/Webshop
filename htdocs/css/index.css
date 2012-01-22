@@ -4,7 +4,6 @@
       height: auto;
       padding: 15px;
       float:left;
-      overflow: hidden;
       
       background-color: #fcfdfd;
       
@@ -56,6 +55,7 @@
       width: 205px;
       height: 500px;
       padding: 15px;
+      
       float: left;
       
       margin-left: auto;

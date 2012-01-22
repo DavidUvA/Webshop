@@ -70,3 +70,8 @@
       color: #091820;
       text-align: justify;
 }
+
+#sidebar-left textarea {
+	resize: none;
+	width: 100%;
+}

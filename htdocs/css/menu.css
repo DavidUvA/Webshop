@@ -1,6 +1,12 @@
    /* Top menu items */
+#horizontalmenu form {
+width: 100%;
+margin-left: auto;
+margin-right: auto;
+
+}
 #horizontalmenu ul {
-   margin:0;
+   margin:0px;
    padding:0px;
    list-style:none;
    float:right;
