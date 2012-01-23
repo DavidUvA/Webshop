@@ -26,25 +26,22 @@
 	
 	<body>
 		<div id="maincontainer">
-			<div id="box-search">
-			
-			<form>
-			Username: <input type="text" name="text" size="20" />
-			Password: <input type="text" name="text" size="20" />
-			<button type="button">Login</button>
-			</form>
-			<br /><br />
-			<form> 
-			<input type="text" name="search query" size="20"/>
-			<button type="button">Search</button>
-			</form>
-			
+						
+			<div id="header">		
+				<h2><a href="index.htm" style="text-decoration:none; color:white">Header</a></h2>						
 			</div>
-			<div id="header">
-			<h2><a href="index.htm" style="text-decoration:none; color:white">Header</a></h2>
+			
+			<div id="box-login">
+				<form >
+					Username: <input type="text" name="text" size="20" /> </br>
+					Password: <input type="password" name="text" size="20" /> </br>
+					<a href="register.htm" style="text-decoration:none;"><button type="button">Sign up</button></a><button type="button">Login</button>
+				</form>
+				</br>
 			</div>
-		
+			
         	<div id="horizontalmenu">
+
     	    	<ul>
 					<li><a href="index.htm">Home</a>
         	       		<ul>
@@ -59,7 +56,7 @@
 						   <li><a href="webshop.htm">Htc</a></li>
             	   		</ul>
         	    	
-    	        	<li><a href="#">My account</a>
+    	        	<li class="active"><a href="#">My account</a>
 	              		<ul>
 							<li><a href="register.htm">Register</a></li>
                 	   		<li><a href="helpdesk.htm">Helpdesk</a></li>
@@ -70,10 +67,17 @@
     	        	<li><a href="contact.htm">Contact</a>
 	            
 	            	</li>
-            		<li class="active"><a href="about.htm">About</a></li>
+            		<li><a href="about.htm">About</a></li>
      	    	</ul>
-     	 	</div>		
-		
+     	 	</div>	
+     	 	
+     		<div id="box-search">
+				<form> 
+					<input type="text" name="search query" size="20"/>
+					<button type="button">Search</button>
+				</form>
+			</div>	
+     	 			
 			<div id="sidebar-left">
 			<p1> Welcome, Sir/Madame,</p1>
 				<hr>
@@ -91,6 +95,76 @@
 				<p
 				<hr>
 				<table>
+				
+<tr>
+<td align="right" class="required"><b>Title:</b></td>
+<td class="required"><input type="radio" name="title"
+value="male" /> Mr. <input type="radio" name="title"
+value="female" /> Ms. <input type="radio" name="title"
+value="female" /> Mrs. <input type="radio" name="title"
+value="female" /> Miss </td>
+</tr>				
+
+<tr>
+
+<td align="right" class="required"><p>First Name:</p></td>
+<td><input name="name" class="required" /></td>
+</tr>
+<tr>
+<td align="right" class="required"><p>Middle Name:</p></td>
+<td><input name="name" class="required" /></td>
+</tr>
+<tr>
+<td align="right" class="required"><p>Last name:</p></td>
+<td><input name="name" class="required" /></td>
+</tr>
+<tr>
+<td align="right" class="required"><b>Country:</b></td>
+<td class="required"><input type="radio" name="country"
+value="male" /> Netherlands <input type="radio" name="country"
+value="male" /> Belgium 
+</td>
+</tr>		
+
+<td align="right" class="required"><p>City:</p></td>
+<td><input name="name" class="required" /></td>
+
+</tr>
+<tr>
+<td align="right" class="required"><p>Street name:</p></td>
+<td><input name="name" class="required" /></td>
+
+</tr>
+<tr>
+<td align="right" class="required"><p>Street Number:</p></td>
+<td><input name="name" class="required" /></td>
+
+</tr>
+<tr>
+<td align="right" class="required"><p>Adjunct:</p></td>
+<td><input name="name" class="required" /></td>
+
+</tr>
+<tr>
+<td align="right" class="required"><p>Phone Number:</p></td>
+<td><input name="name" class="required" /></td>
+
+</tr>
+<tr>
+<td align="right" class="required"><p>Homephone:</p></td>
+<td><input name="name" class="required" /></td>
+
+</tr>
+
+<tr>
+<td align="right" class="required"><p>Zip code:</p> </td> 
+<td><input name="name" class="required" placeholder="1234" maxlength="4" size="12"/ ><input name="name" class="required" placeholder="AA"  maxlength="2" size="3"/></td>
+<td></td>
+
+<br>
+</td>
+
+</tr>
 <tr>
 
 <td align="right" class="required"><p>Email-adress:</p> </td>
@@ -98,52 +172,13 @@
 </tr>
 <tr>
 <td align="right" class="required"><p>Password:</p></td>
-<td><input name="name" class="required" /></td>
+<td><input type="password" name="name" class="required" /></td>
 </tr>
 <tr>
-<td align="right" class="required"><p>Name:</p></td>
-<td><input name="name" class="required" /></td>
-</tr>
-<tr>
-<td align="right" class="required"><p>Surname:</p></td>
-<td><input name="name" class="required" /></td>
-</tr>
-<tr>
-<td align="right" class="required"><p>Billing adress:</p></td>
-<td><input name="name" class="required" /></td>
-
-</tr>
-<tr>
-<td align="right" class="required"><p>Billing adress No:</p></td>
-<td><input name="name" class="required" /></td>
-
-</tr>
-<tr>
-<td align="right" class="required"><p>Adress:</p></td>
-<td><input name="name" class="required" /></td>
-
-</tr>
-<tr>
-<td align="right" class="required"><p>Adress No:</p></td>
-<td><input name="name" class="required" /></td>
-
-</tr>
-<tr>
-<td align="right" class="required"><p>Zip code:</p> </td> 
-<td><input name="name" class="required" placeholder="Enter four digits" length="4"/ >
-<td><input name="name" class="required" placeholder="Enter two letters"  length="2" type="text"/></td>
-
-<br>
-</td>
-
+<td align="right" class="required"><p>Confirm password:</p></td>
+<td><input type="password" name="name" class="required" /></td>
 </tr>
 
-<tr>
-<td align="right" class="required"><b>Gender:</b></td>
-<td class="required"><input type="radio" name="gender"
-value="male" /> Male <input type="radio" name="gender"
-value="female" /> Female</td>
-</tr>
 <tr>
 <td colspan="2" align="center"><input type="submit" id="register" value="Register"
 class="submit" /></td>

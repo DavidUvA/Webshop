@@ -18,31 +18,59 @@
 }
 
 #header {
-      width: 100%;
+	  float: left;
+      width: 675px;
       height: 80px;
       border-color: #354d07;
       border-style: solid;
       border-width: 0px;
       
+      margin-left: 20px;
+      margin-top: 40px;
+      
       font-family: Cambria;
       font-size: 30px;
       font-weight: bold;
       color: #000000;
+      
+      border-color: red;
+      border-width: 0px; /* change to view container's edges */
+      border-style: solid;
 }
 #header h2 {
-      padding-left: 40px;
+	  margin-left: 20px;
+	  margin-top: 0px;
       font-size: 50px;
       color: white;
 }
 
-#box-search {
-      width: 550px;
-      height: 50px;
+#box-login {
+      width: 250px;
+      height: 70px;
       float: right;
-      clear: both;
       
-      margin-top: 40px;
+      margin-top: 50px;
       margin-right: 10px;
+      background-color: transparent;
+      
+      font-family: Calibri;
+      font-size: 16px;
+      color: white;
+      text-align: right;
+      
+      border-color: red;
+      border-width: 0px; /* change to view container's edges */
+      border-style: solid;
+}
+
+#box-search {
+      width: 250px;
+      height: 25px;
+      float: right;
+      
+      margin-top: -22px;
+      margin-right: 10px;
+      margin-bottom: -10px;
       background-color: transparent;
       
       font-family: Calibri;
@@ -57,11 +85,14 @@
 
 #horizontalmenu {
       width: 100%;
-      float:left;
-      clear:both;
-      position:relative;
+      height: 35px;
+      margin-left: auto;
+      margin-right: auto;
+      overflow: visible;
+      clear: left;
       
-      margin-bottom: 10px;
+      margin-top: 40px;
+      margin-bottom: 8px;
       
       border-style: solid;
       border-width: 0px;
@@ -69,6 +100,10 @@
       
       font-family: Calibri;
       font-size: 16px;
+      
+      border-color: red;
+      border-width: 0px; /* change to view container's edges */
+      border-style: solid;
 }
 
 #box-footer {
