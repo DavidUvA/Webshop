@@ -1,9 +1,28 @@
 <?php
-	// Puts html content for menu in $menu_backoffice
-	include "menu_backoffice.php";
+session_start();
+	// Places head content (css /scripts etc) in $backoffice_headcontent;
+	include "include/backoffice_headcontent.php";
+
+	// Places header content (shop name from site config) in $backoffice_header
+	include "include/backoffice_header.php";
+	
+	// Places horizontal menu content for backoffice in $menu_backoffice
+	include "include/menu_backoffice.php";
+
+	// Places search box content in $main_search
+	include "../phpcontent/main_search.php";
+
+	// Places left sidebar content in $main_leftsidebar
+	include "../phpcontent/main_leftsidebar.php";
+
+	// Places footer content in $main_footer
+	include "../phpcontent/main_footer.php";
 
 	// Puts html content for stylesheets in $css_backoffice
-	include "css_backoffice.php";
+	include "include/css_backoffice.php";
+
+	// Puts html content for login form in $backoffice_loginform
+	include "include/checklogin.php";
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -33,17 +52,11 @@
 		<div id="maincontainer">
 						
 			<div id="header">		
-				<h2><a href="backoffice.php" style="text-decoration:none; color:white">Backoffice</a></h2>						
+				<?php echo $main_header; ?>
 			</div>
 			
 			<div id="box-login">
-			
-				<form name="input" action="checklogin.php" method="post">
-					Username: <input type="text" name="myusername" size="20" /> </br>
-					Password: <input type="password" name="mypassword" size="20" /> </br>
-					<a href="register.htm" style="text-decoration:none;"><button type="button">Sign up</button></a><button type="submit">Login</button>
-				</form>
-				</br>
+				<?php echo $backoffice_loginform; ?>
 			</div>
 			
         	<div id="horizontalmenu">
@@ -51,17 +64,15 @@
      	 	</div>	
      	 	
      		<div id="box-search">
-				<form> 
-					<input type="text" name="search query" size="20"/>
-					<button type="button">Search</button>
-				</form>
-			</div>	
+				<?php echo $main_search; ?>
+			</div>
 		
 			<div id="sidebar-left">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed elit ante. Nunc luctus tempus nibh, ac pellentesque dolor rhoncus vitae. Donec ac ipsum ut elit suscipit varius. Donec urna turpis, porta nec tincidunt suscipit, dapibus at neque. Nulla cursus risus vitae diam egestas in feugiat arcu consectetur. Vivamus dapibus tincidunt dictum. Aliquam nec volutpat libero. Phasellus et arcu elit. Praesent nunc ante, placerat sagittis pharetra non, rutrum vitae nisl. Sed sollicitudin dui non lacus semper in lacinia sapien sollicitudin. Praesent lobortis urna sapien. Sed sed eros neque, in posuere massa. Quisque sit amet nisi dolor, id elementum libero. Mauris pharetra ultricies tellus non laoreet. Ut rutrum rutrum libero quis aliquet. Nulla mauris ipsum, gravida ac dictum non, dictum eget est.
+				<?php echo $main_leftsidebar; ?>
 			</div>
 		
 			<div id="box-carousel">
+			
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed elit ante. Nunc luctus tempus nibh, ac pellentesque dolor rhoncus vitae. Donec ac ipsum ut elit suscipit varius. Donec urna turpis, porta nec tincidunt suscipit, dapibus at neque. Nulla cursus risus vitae diam egestas in feugiat arcu consectetur. Vivamus dapibus tincidunt dictum. Aliquam nec volutpat libero. Phasellus et arcu elit. Praesent nunc ante, placerat sagittis pharetra non, rutrum vitae nisl. Sed sollicitudin dui non lacus semper in lacinia sapien sollicitudin. Praesent lobortis urna sapien. Sed sed eros neque, in posuere massa. Quisque sit amet nisi dolor, id elementum libero. Mauris pharetra ultricies tellus non laoreet. Ut rutrum rutrum libero quis aliquet. Nulla mauris ipsum, gravida ac dictum non, dictum eget est.
 
 				<p>Nam iaculis sapien eget turpis eleifend pharetra. Duis pretium semper lacinia. Nulla sagittis lacus quis lacus vehicula fringilla. Fusce at lectus vitae lectus varius sagittis vel ac velit. Nunc consectetur, magna in luctus ultricies, mi turpis fringilla sem, nec facilisis mauris nunc eu leo. Praesent gravida consectetur nulla, mattis laoreet libero lobortis nec. Sed nec magna velit.</p>
@@ -78,7 +89,9 @@
 		
 			</div>
 	
-			<div id="box-footer">Developed by David Sondervan, Nicolas Martos, Artiom Emelianov, Nisjaat Sheik Joesoef, Willem van Dijk in Amsterdam 2012.</div>
+			<div id="box-footer">
+				<?php echo $main_footer; ?>
+			</div>
 
 		</div>
 	</body>

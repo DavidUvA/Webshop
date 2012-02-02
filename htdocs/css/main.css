@@ -18,7 +18,7 @@
 }
 
 #header {
-	  float: left;
+	float: left;
       width: 675px;
       height: 80px;
       border-color: #354d07;
@@ -28,24 +28,22 @@
       margin-left: 20px;
       margin-top: 40px;
       
-      font-family: Cambria;
-      font-size: 30px;
-      font-weight: bold;
-      color: #000000;
-      
       border-color: red;
       border-width: 0px; /* change to view container's edges */
       border-style: solid;
 }
-#header h2 {
-	  margin-left: 20px;
-	  margin-top: 0px;
+#header h2 a {
+	margin-left: 20px;
+	margin-top: 0px;
+      
+      text-decoration: none;
+      font-family: Cambria;
       font-size: 50px;
       color: white;
 }
 
 #box-login {
-      width: 250px;
+      width: 270px;
       height: 70px;
       float: right;
       
@@ -128,6 +126,23 @@
       font-size: 14px;
       color: #091820;
       text-align: center;
+}
+
+img[id*='simple-target-'] {
+    background-color: #EEEEEE;
+    display: block;
+    padding: 0px;
+    text-align: center;
+}
+div[id*='simple-content-'] {
+    background-color: #FFC848;
+    border: 3px solid #AF8A31;
+    color: black;
+    display: none;
+    padding: 10px;
+    position: absolute;
+    text-align: center;
+    width: 250px;
 }
 
 /*****************/

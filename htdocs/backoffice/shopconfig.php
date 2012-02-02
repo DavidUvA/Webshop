@@ -1,135 +1,106 @@
 <?php
-	// Puts html content for menu in $menu_backoffice
-	include "menu_backoffice.php";
+session_start();
+	// Places head content (css /scripts etc) in $backoffice_headcontent;
+	include "include/backoffice_headcontent.php";
+
+	// Places header content (shop name from site config) in $backoffice_header
+	include "include/backoffice_header.php";
+	
+	// Places horizontal menu content for backoffice in $menu_backoffice
+	include "include/menu_backoffice.php";
+
+	// Places search box content in $main_search
+	include "../phpcontent/main_search.php";
+
+	// Places left sidebar content in $main_leftsidebar
+	include "../phpcontent/main_leftsidebar.php";
+
+	// Places footer content in $main_footer
+	include "../phpcontent/main_footer.php";
 
 	// Puts html content for stylesheets in $css_backoffice
-	include "css_backoffice.php";
+	include "include/css_backoffice.php";
+
+	// Puts html content for login form in $backoffice_loginform
+	include "include/checklogin.php";
 ?>
 
 <?php
 	// CONNECT TO DATABASE
-	include "connection.php";
+	include "../connection.php";
 
-	if ($_POST[hidden] != "save") {
+	if ($_POST[hidden] == "save") {
+
+		$save_shopconfig = "UPDATE shopconfig SET shop_name='$_POST[shop_name]', shop_address='$_POST[shop_address]', shop_phone='$_POST[shop_phone]', shop_email='$_POST[shop_email]' WHERE shop_name='$_POST[oldshopname]'";
+
+		mysql_query($save_shopconfig) or die(mysql_error());
+		$updated_msg = "<h4>Shop config has been updated</h4>";
+
+	}
+
+	$query = "SELECT * FROM shopconfig LIMIT 1"; 
+
+	$result = mysql_query($query) or die(mysql_error());
+	$row = mysql_fetch_array($result) or die(mysql_error());
+	$old_shopname = $row['shop_name'];
+
+	$body_content = "<h1>Shop config</h1>
+
+	" . $updated_msg . "
+
+	<form method=\"post\" action=\"$_SERVER[PHP_SELF]\">
 	
-		$config = mysql_query("SELECT * FROM shopconfig");
-		echo $config[0];
-		echo $config[1];
-
-
-		$body_content = "<h1>Shop config</h1>
-
-		<form method=\"post\" action=\"$_SERVER[PHP_SELF]\">
-		
-		<table style=\"border: 0px;\">
-			<tr>
-				<td>Shop name:</td>
-				<td><input type=\"text\" name=\"shop_name\" size=30 maxlength=50></td>
-			</tr>
-			<tr>
-				<td>Address</td>
-				<td><input type=\"textarea\" name=\"shop_address\" size=30 maxlength=16></td>
-			</tr>
-			<tr>
-				<td>Phone number</td>
-				<td><input type=\"password\" name=\"shop_phone\" size=30 maxlength=16></td>
-			</tr>
-		</table>
-
-		<input type=\"hidden\" name=\"hidden\" value=\"save\">
-		<input type=\"button\" name=\"submit\" value=\"Save\">
-		</form>";
-	}
-	else if ($_POST[hidden] == "save") {
-		$body_content = "SAVE";
-	}
+	<table style=\"border: 0px;\">
+		<tr>
+			<td>Shop name:</td>
+			<td><input type=\"text\" name=\"shop_name\" size=\"51\"	 maxlength=\"30\" value=\"" . $row['shop_name'] . "\"></td>
+		</tr>
+		<tr>
+			<td>Address:</td>
+			<td><textarea            name=\"shop_address\"      	 maxlength=\"120\" cols=\"40\" rows=\"3\" style=\"resize: none;\">" . $row['shop_address'] . "</textarea></td>
+		</tr>
+		<tr>
+			<td>Phone number:</td>
+			<td><input type=\"text\" name=\"shop_phone\" size=\"51\" maxlength=\"12\" value=\"" . $row['shop_phone'] . "\"></td>
+		</tr>
+		<tr>
+			<td>Contact e-mail:</td>
+			<td><input type=\"text\" name=\"shop_email\" size=\"51\" maxlength=\"40\" value=\"" . $row['shop_email'] . "\"></td>
+		</tr>
+	</table>
+	<br />
+	<input type=\"hidden\" name=\"hidden\" value=\"save\">
+	<input type=\"hidden\" name=\"oldshopname\" value=\"" . $old_shopname . "\">
+	<input type=\"submit\" name=\"submit\" value=\"Save\">
+	</form>";
 ?>
 
 <html>
 	<head>
 		<title>Add entry</title>
 		<?php echo $css_backoffice; ?>
-		<style type="text/css">
-			
-			html {
-				background: #73add7 url(../images/header_back.gif) repeat-x left top;
-				background-color: white;
-			}
-
-			body {
-				width: 100%;
-				margin-left: 0px;
-				margin-top: 0px;
-				background: url(../images/back_mic.jpg) no-repeat center 143px;
-			}
-				
-		</style>
-		<script type="text/javascript" language="javascript">
-		 function toggleVisibility(cb)
-		 {
-		  var checkboxid = document.getElementById("shippingaddress");
-		  if(cb.checked==true)
-		   checkboxid.style.display = "block";
-		  else
-		   checkboxid.style.display = "none";
-		 }
-		</script>
 	</head>
 	<body>
 		<div id="maincontainer">
 						
 			<div id="header">		
-				<h2><a href="index.htm" style="text-decoration:none; color:white">Header</a></h2>						
+				<?php echo $main_header; ?>
 			</div>
 			
 			<div id="box-login">
-			
-				<form name="input" action="checklogin.php" method="post">
-					Username: <input type="text" name="myusername" size="20" /> </br>
-					Password: <input type="password" name="mypassword" size="20" /> </br>
-					<a href="register.htm" style="text-decoration:none;"><button type="button">Sign up</button></a><button type="submit">Login</button>
-				</form>
-				</br>
+				<?php echo $backoffice_loginform; ?>
 			</div>
 			
         	<div id="horizontalmenu">
-    	    	<ul>
-					<li class="active"><a href="backoffice.php">Backoffice</a>
-        	       		<ul>
-            	   		</ul>
-        	    	</li>
-	            	<li><a href="listusers.php">Users</a>
-        	       		<ul>
-    	           		   <li><a href="listusers.php">List</a></li>
-	               		   <li><a href="adduser.php">Add</a></li>
-	               		   <li><a href="editusers.php">Edit</a></li>
-            	   		</ul>
-        	    	</li>
-    	        	<li><a href="viewproducts.php">Products</a>
-	              		<ul>
-							<li><a href="viewproducts.php">View</a></li>
-                	   		<li><a href="editproducts.php">Import/export</a></li>
-       	        		</ul>
-        	    	</li>
-    	        	<li><a href="vieworders.php">Orders</a>
-    	        		<ul>
-							<li><a href="vieworders.php">View</a></li>
-                	   		<li><a href="addorder.php">Add order manually</a></li>
-       	        		</ul>
-	            	</li>
-            		<li><a href="shopconfig.php">Shop config</a></li>
-     	    	</ul>
+    	    	<?php echo $menu_backoffice; ?>
      	 	</div>	
      	 	
      		<div id="box-search">
-				<form> 
-					<input type="text" name="search query" size="20"/>
-					<button type="button">Search</button>
-				</form>
+				<?php echo $main_search; ?>
 			</div>
 		
 			<div id="sidebar-left">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed elit ante. Nunc luctus tempus nibh, ac pellentesque dolor rhoncus vitae. Donec ac ipsum ut elit suscipit varius. Donec urna turpis, porta nec tincidunt suscipit, dapibus at neque. Nulla cursus risus vitae diam egestas in feugiat arcu consectetur. Vivamus dapibus tincidunt dictum. Aliquam nec volutpat libero. Phasellus et arcu elit. Praesent nunc ante, placerat sagittis pharetra non, rutrum vitae nisl. Sed sollicitudin dui non lacus semper in lacinia sapien sollicitudin. Praesent lobortis urna sapien. Sed sed eros neque, in posuere massa. Quisque sit amet nisi dolor, id elementum libero. Mauris pharetra ultricies tellus non laoreet. Ut rutrum rutrum libero quis aliquet. Nulla mauris ipsum, gravida ac dictum non, dictum eget est.
+				<?php echo $main_leftsidebar; ?>
 			</div>
 		
 			<div id="box-carousel">

@@ -1,0 +1,19 @@
+<?php
+	include "../include/category_breadcrumb.php";
+	function backoffice_productbox($product_id) {
+		if ($_POST[hidden] == "add") {
+			include "../connection.php";
+
+			$query = "SELECT * FROM brand WHERE brand_id=$_REQUEST[brand]"; 
+			$result = mysql_query($query) or die(mysql_error());
+			$row = mysql_fetch_array($result) or die(mysql_error());
+
+			$brand_name = $row['brand_name'];
+
+			$query = "SELECT * FROM category WHERE category_id=$_REQUEST[category]"; 
+			$result = mysql_query($query) or die(mysql_error());
+			$row = mysql_fetch_array($result) or die(mysql_error());
+
+			$category_id = $row['category_id'];
+	}
+?>

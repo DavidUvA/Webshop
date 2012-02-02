@@ -1,0 +1,151 @@
+
+/**********************/
+/* DON'T CHANGE BELOW */
+/**********************/
+
+#maincontainer {
+      width: 980px;
+      margin-right: auto; /* Center page content */
+      margin-left: auto;  /* Center page content */
+      height: auto;
+      padding: 5px;
+      
+      border-color: #354d58;
+      border-width: 0px; /* change to view container's edges */
+      border-style: solid;
+      
+      overflow: auto;
+}
+
+#header {
+	float: left;
+      width: 675px;
+      height: 80px;
+      border-color: #354d07;
+      border-style: solid;
+      border-width: 0px;
+      
+      margin-left: 20px;
+      margin-top: 40px;
+      
+      border-color: red;
+      border-width: 0px; /* change to view container's edges */
+      border-style: solid;
+}
+#header h2 a {
+	margin-left: 20px;
+	margin-top: 0px;
+      
+      text-decoration: none;
+      font-family: Cambria;
+      font-size: 50px;
+      color: white;
+}
+
+#box-login {
+      width: 270px;
+      height: 70px;
+      float: right;
+      
+      margin-top: 50px;
+      margin-right: 10px;
+      background-color: transparent;
+      
+      font-family: Calibri;
+      font-size: 16px;
+      color: white;
+      text-align: right;
+      
+      border-color: red;
+      border-width: 0px; /* change to view container's edges */
+      border-style: solid;
+}
+
+#box-search {
+      width: 250px;
+      height: 25px;
+      float: right;
+      
+      margin-top: -22px;
+      margin-right: 10px;
+      margin-bottom: -10px;
+      background-color: transparent;
+      
+      font-family: Calibri;
+      font-size: 16px;
+      color: white;
+      text-align: right;
+      
+      border-color: red;
+      border-width: 0px; /* change to view container's edges */
+      border-style: solid;
+}
+
+#horizontalmenu {
+      width: 100%;
+      height: 35px;
+      margin-left: auto;
+      margin-right: auto;
+      overflow: visible;
+      clear: left;
+      
+      margin-top: 40px;
+      margin-bottom: 8px;
+      
+      border-style: solid;
+      border-width: 0px;
+      border-color: #354d58;
+      
+      font-family: Calibri;
+      font-size: 16px;
+      
+      border-color: red;
+      border-width: 0px; /* change to view container's edges */
+      border-style: solid;
+}
+
+#box-footer {
+      /* Dimensions & positioning */
+      width: 968px;
+      
+      float: right;
+      clear:both;
+      position:relative;
+      margin: 5px;
+      
+      background-color: #fcfdfd;
+      
+      padding-top: 10px;
+      padding-bottom: 10px;
+      
+      border-width: 1px;
+      border-style: solid;
+      border-color: #354d58;
+      
+      font-family: Calibri;
+      font-size: 14px;
+      color: #091820;
+      text-align: center;
+}
+
+img[id*='simple-target-'] {
+    background-color: #EEEEEE;
+    display: block;
+    padding: 0px;
+    text-align: center;
+}
+div[id*='simple-content-'] {
+      font-size: 12px;
+      background-color: #FFC848;
+      border: 3px solid #AF8A31;
+      color: black;
+      display: none;
+      padding: 10px;
+      position: absolute;
+      text-align: center;
+      width: 250px;
+}
+
+/*****************/
+/* END no change */
+/*****************/

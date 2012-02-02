@@ -1,9 +1,28 @@
 <?php
-	// Puts html content for menu in $menu_backoffice
-	include "menu_backoffice.php";
+session_start();
+	// Places head content (css /scripts etc) in $backoffice_headcontent;
+	include "include/backoffice_headcontent.php";
+
+	// Places header content (shop name from site config) in $backoffice_header
+	include "include/backoffice_header.php";
+	
+	// Places horizontal menu content for backoffice in $menu_backoffice
+	include "include/menu_backoffice.php";
+
+	// Places search box content in $main_search
+	include "../phpcontent/main_search.php";
+
+	// Places left sidebar content in $main_leftsidebar
+	include "../phpcontent/main_leftsidebar.php";
+
+	// Places footer content in $main_footer
+	include "../phpcontent/main_footer.php";
 
 	// Puts html content for stylesheets in $css_backoffice
-	include "css_backoffice.php";
+	include "include/css_backoffice.php";
+
+	// Puts html content for login form in $backoffice_loginform
+	include "include/checklogin.php";
 ?>
 <?php
 	if ($_POST[op] != "add") {
@@ -114,7 +133,7 @@
 
 		// INSERT BILLING ADDRESS
 		if ($_POST[firstname]) {
-			$add_billingaddress = "insert into address (address_title, address_firstname, address_middlename, address_lastname, address_streetname, address_streetnumber, address_adjunct, address_postalcode, address_city, address_country, address_mobilephone, address_homephone) values ('$_POST[title]', '$_POST[firstname]', '$_POST[middlename]', '$_POST[lastname]', '$_POST[streetname]', $_POST[streetnumber], '$_POST[adjunct]', '$_POST[postalcode]', '$_POST[city]', '$_POST[country]', 1234, NULL)";
+			$add_billingaddress = "INSERT into address (address_title, address_firstname, address_middlename, address_lastname, address_streetname, address_streetnumber, address_adjunct, address_postalcode, address_city, address_country, address_mobilephone, address_homephone) values ('$_POST[title]', '$_POST[firstname]', '$_POST[middlename]', '$_POST[lastname]', '$_POST[streetname]', $_POST[streetnumber], '$_POST[adjunct]', '$_POST[postalcode]', '$_POST[city]', '$_POST[country]', 1234, NULL)";
 			mysql_query($add_billingaddress) or die(mysql_error());
 
 			//get billingaddress id to insert in user table
@@ -124,7 +143,7 @@
 		// INSERT SHIPPING ADDRESS
 		// Check if shipping address checkbox is checked
 		if (isset($_POST['shippingcheckbox'])) {
-			$add_shippingaddress = "insert into address (address_title, address_firstname, address_middlename, address_lastname, address_streetname, address_streetnumber, address_adjunct, address_postalcode, address_city, address_country, address_mobilephone, address_homephone) values ('$_POST[title2]', '$_POST[firstname2]', '$_POST[middlename2]', '$_POST[lastname2]', '$_POST[streetname2]', $_POST[streetnumber], '$_POST[adjunct2]', '$_POST[postalcode2]', '$_POST[city2]', '$_POST[country2]', 1234, NULL)";
+			$add_shippingaddress = "INSERT into address (address_title, address_firstname, address_middlename, address_lastname, address_streetname, address_streetnumber, address_adjunct, address_postalcode, address_city, address_country, address_mobilephone, address_homephone) values ('$_POST[title2]', '$_POST[firstname2]', '$_POST[middlename2]', '$_POST[lastname2]', '$_POST[streetname2]', $_POST[streetnumber], '$_POST[adjunct2]', '$_POST[postalcode2]', '$_POST[city2]', '$_POST[country2]', 1234, NULL)";
 			mysql_query($add_shippingaddress) or die(mysql_error());
 
 			//get shippingaddress id to insert in user table
@@ -133,7 +152,7 @@
 
 
 		if ($user_billingaddressid) {
-			$add_user = "insert into user (user_email, user_password, user_registration, user_lastlogin, user_billingaddressid, user_shippingaddressid) values ('$_POST[email]', '$_POST[password]', now(), now(), '$user_billingaddressid', '$user_shippingaddressid')";
+			$add_user = "INSERT into user (user_email, user_password, user_registration, user_lastlogin, user_billingaddressid, user_shippingaddressid) values ('$_POST[email]', '$_POST[password]', now(), now(), '$user_billingaddressid', '$user_shippingaddressid')";
 			mysql_query($add_user) or die(mysql_error());
 
 			$body_content = "<h1>User added</h1><br />
@@ -176,64 +195,32 @@
 		<div id="maincontainer">
 						
 			<div id="header">		
-				<h2><a href="index.htm" style="text-decoration:none; color:white">Header</a></h2>						
+				<?php echo $main_header; ?>
 			</div>
 			
 			<div id="box-login">
-			
-				<form name="input" action="checklogin.php" method="post">
-					Username: <input type="text" name="myusername" size="20" /> </br>
-					Password: <input type="password" name="mypassword" size="20" /> </br>
-					<a href="register.htm" style="text-decoration:none;"><button type="button">Sign up</button></a><button type="submit">Login</button>
-				</form>
-				</br>
+				<?php echo $backoffice_loginform; ?>
 			</div>
 			
         	<div id="horizontalmenu">
-    	    	<ul>
-					<li class="active"><a href="backoffice.php">Backoffice</a>
-        	       		<ul>
-            	   		</ul>
-        	    	</li>
-	            	<li><a href="listusers.php">Users</a>
-        	       		<ul>
-    	           		   <li><a href="listusers.php">List</a></li>
-	               		   <li><a href="adduser.php">Add</a></li>
-	               		   <li><a href="editusers.php">Edit</a></li>
-            	   		</ul>
-        	    	</li>
-    	        	<li><a href="viewproducts.php">Products</a>
-	              		<ul>
-							<li><a href="viewproducts.php">View</a></li>
-                	   		<li><a href="editproducts.php">Import/export</a></li>
-       	        		</ul>
-        	    	</li>
-    	        	<li><a href="vieworders.php">Orders</a>
-    	        		<ul>
-							<li><a href="vieworders.php">View</a></li>
-                	   		<li><a href="addorder.php">Add order manually</a></li>
-       	        		</ul>
-	            	</li>
-            		<li><a href="shopconfig.php">Shop config</a></li>
-     	    	</ul>
+    	    	<?php echo $menu_backoffice; ?>
      	 	</div>	
      	 	
      		<div id="box-search">
-				<form> 
-					<input type="text" name="search query" size="20"/>
-					<button type="button">Search</button>
-				</form>
+				<?php echo $main_search; ?>
 			</div>
 		
 			<div id="sidebar-left">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed elit ante. Nunc luctus tempus nibh, ac pellentesque dolor rhoncus vitae. Donec ac ipsum ut elit suscipit varius. Donec urna turpis, porta nec tincidunt suscipit, dapibus at neque. Nulla cursus risus vitae diam egestas in feugiat arcu consectetur. Vivamus dapibus tincidunt dictum. Aliquam nec volutpat libero. Phasellus et arcu elit. Praesent nunc ante, placerat sagittis pharetra non, rutrum vitae nisl. Sed sollicitudin dui non lacus semper in lacinia sapien sollicitudin. Praesent lobortis urna sapien. Sed sed eros neque, in posuere massa. Quisque sit amet nisi dolor, id elementum libero. Mauris pharetra ultricies tellus non laoreet. Ut rutrum rutrum libero quis aliquet. Nulla mauris ipsum, gravida ac dictum non, dictum eget est.
+				<?php echo $main_leftsidebar; ?>
 			</div>
 		
 			<div id="box-carousel">
 				<?php echo $body_content; ?>
 			</div>
 	
-			<div id="box-footer">Developed by David Sondervan, Nicolas Martos, Artiom Emelianov, Nisjaat Sheik Joesoef, Willem van Dijk in Amsterdam 2012.</div>
+			<div id="box-footer">
+				<?php echo $main_footer; ?>
+			</div>
 
 		</div>
 	</body>
